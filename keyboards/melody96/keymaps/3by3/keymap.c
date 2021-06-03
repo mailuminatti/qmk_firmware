@@ -8,18 +8,25 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
         rgblight_setrgb(200,242,255);
         rgblight_setrgb_at(RGB_RED, 7);
         rgblight_setrgb_at(RGB_RED, 8);
+        SEND_STRING(SS_DOWN(X_LCTRL) SS_DELAY(10) SS_DOWN(X_F9) SS_DELAY(10));
+        SEND_STRING(SS_UP(X_LCTRL) SS_DELAY(10) SS_UP(X_F9));
+        return false;
         //rgblight_toggle();
         return false;
 			case 1:
         rgblight_setrgb(200,242,255);
         rgblight_setrgb_at(RGB_GREEN, 7);
         rgblight_setrgb_at(RGB_GREEN, 8);
+        SEND_STRING(SS_DOWN(X_LCTRL) SS_DELAY(10) SS_DOWN(X_F10) SS_DELAY(10));
+        SEND_STRING(SS_UP(X_LCTRL) SS_DELAY(10) SS_UP(X_F10));
         //rgblight_toggle();
         return false;
-      case 2:
-        SEND_STRING(SS_DOWN(X_LCTRL) SS_DELAY(10) SS_DOWN(X_F9) SS_DELAY(10));
-        SEND_STRING(SS_UP(X_LCTRL) SS_DELAY(10) SS_UP(X_F9));
-        return false;
+            case 2:
+        //rgblight_setrgb(200,242,255);
+        rgblight_setrgb_at(RGB_CYAN, 6);
+        SEND_STRING(SS_TAP(X__VOLUP));
+        SEND_STRING(SS_DELAY(10));
+        rgblight_setrgb_at(200,242,255, 6);
 
 		}
 	}
